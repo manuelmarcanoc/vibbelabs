@@ -1,0 +1,69 @@
+/* —— Barra de progreso de scroll —— */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 300;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* —— Cursor personalizado —— */
+.cursor-ring,
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--red);
+  z-index: 10000;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--red);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.cursor-ring--active {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 0, 0, 0.12);
+  border-color: var(--red);
+}
+
+/* Oculta el cursor nativo solo cuando el personalizado está activo y con ratón fino */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor .btn-pill,
+  body.has-custom-cursor [role='button'] {
+    cursor: none;
+  }
+
+  body.has-custom-cursor input,
+  body.has-custom-cursor textarea {
+    cursor: text;
+  }
+}
+
+@media (pointer: coarse) {
+  .cursor-ring,
+  .cursor-dot {
+    display: none;
+  }
+}

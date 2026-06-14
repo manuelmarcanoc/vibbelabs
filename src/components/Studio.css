@@ -1,0 +1,125 @@
+.studio {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 10vw, 7rem) 0;
+  background: var(--white);
+  border-bottom: 2px solid var(--black);
+}
+
+/* Foto de oficina difuminada de fondo */
+.studio__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px) saturate(108%);
+  transform: scale(1.03);
+  z-index: 0;
+}
+
+/* Velo para mantener la legibilidad del contenido */
+.studio::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.82) 100%
+  );
+  z-index: 0;
+}
+
+.studio .section-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.studio__label {
+  margin-bottom: 1.25rem;
+}
+
+.studio__bio {
+  background: var(--black);
+  color: var(--white);
+  border-radius: 20px;
+  border: 2px solid var(--black);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+}
+
+.studio__bio-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  max-width: 900px;
+}
+
+.studio__founder {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.studio__shipped {
+  border-radius: 20px;
+  background: var(--white);
+  border: 2px solid var(--black);
+  box-shadow: 5px 5px 0 var(--black);
+  padding: 1.5rem 1.75rem;
+}
+
+.studio__shipped-label {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin: 0 0 0.85rem;
+}
+
+.studio__shipped-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.studio__shipped-list li + li {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+.studio__shipped-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.studio__shipped-list a:hover {
+  color: var(--red);
+}
+
+.studio__signature {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  margin: 0;
+  color: var(--black);
+  line-height: 1.3;
+}
+
+@media (max-width: 700px) {
+  .studio__founder {
+    grid-template-columns: 1fr;
+  }
+}

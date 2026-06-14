@@ -1,0 +1,22 @@
+.tech-strip {
+  background: var(--white);
+  border-top: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  overflow: hidden;
+  padding: 1.25rem 0;
+}
+
+.tech-strip__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.tech-strip__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  color: var(--black);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  padding-right: 0;
+}

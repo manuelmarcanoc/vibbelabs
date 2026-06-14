@@ -1,0 +1,131 @@
+.services-about {
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 3.5rem);
+  background: var(--white);
+  border-top: 2px solid var(--black);
+}
+
+.services-about__layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.services-about__heading {
+  font-size: clamp(4rem, 12vw, 9rem);
+  line-height: 0.9;
+  margin: 0 0 2.5rem;
+  max-width: 90%;
+}
+
+.services-about__arrow {
+  display: inline-block;
+}
+
+.services-about__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.services-about__item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.services-about__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.services-about__num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--red);
+  line-height: 1;
+}
+
+.services-about__item-title {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.35rem;
+}
+
+.services-about__section-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+
+.services-about__about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.services-about__bio {
+  background: var(--black);
+  color: var(--white);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 2px solid var(--black);
+}
+
+.services-about__bio-text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--white);
+}
+
+.services-about__portrait-wrap {
+  position: relative;
+}
+
+.services-about__portrait {
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--black);
+  background: #ccc;
+}
+
+.services-about__portrait-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #888 0%, #444 50%, #222 100%);
+}
+
+.services-about__name {
+  position: absolute;
+  bottom: 8%;
+  left: -4%;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+  transform: rotate(-6deg);
+}
+
+@media (max-width: 900px) {
+  .services-about__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .services-about__heading {
+    max-width: 100%;
+  }
+}
