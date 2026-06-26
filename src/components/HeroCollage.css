@@ -27,9 +27,9 @@
   z-index: 1;
   background: radial-gradient(
     120% 95% at 50% 38%,
-    rgba(236, 233, 226, 0.5) 0%,
-    rgba(236, 233, 226, 0.86) 70%,
-    rgba(236, 233, 226, 0.95) 100%
+    rgba(251, 247, 241, 0.5) 0%,
+    rgba(251, 247, 241, 0.86) 70%,
+    rgba(251, 247, 241, 0.95) 100%
   );
 }
 
@@ -52,7 +52,7 @@
   right: clamp(0.75rem, 3vw, 2rem);
   z-index: 3;
   background: var(--red);
-  color: var(--white);
+  color: var(--on-red);
   font-family: var(--font-display);
   font-size: clamp(0.8rem, 1.6vw, 1rem);
   line-height: 1.05;

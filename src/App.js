@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import useScrollReveal from './useScrollReveal';
 import Interactions from './components/Interactions';
+import FlyingVial from './components/FlyingVial';
 import NavBar from './components/NavBar';
 import HeroCollage from './components/HeroCollage';
 import TickerTape from './components/TickerTape';
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="app-container">
       <Interactions />
+      <FlyingVial />
       <NavBar />
       <section className="surface surface--white" aria-label="Inicio y proyectos">
         <HeroCollage />

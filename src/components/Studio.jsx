@@ -27,12 +27,6 @@ const Studio = () => {
             <p className="studio__shipped-label">En producción</p>
             <ul className="studio__shipped-list">
               <li>
-                <a href="https://horalavadora.es" target="_blank" rel="noopener noreferrer">
-                  <span>horalavadora.es</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </li>
-              <li>
                 <a href="https://istqbeasy.com" target="_blank" rel="noopener noreferrer">
                   <span>istqbeasy.com</span>
                   <span aria-hidden="true">↗</span>

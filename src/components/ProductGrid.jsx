@@ -3,23 +3,8 @@ import './ProductGrid.css';
 
 const projects = [
   {
-    id: 'horalavadora',
-    index: '01',
-    title: 'Hora Lavadora',
-    kicker: 'Producto propio',
-    description:
-      'App que te dice en tiempo real cuándo la luz está más barata para poner la lavadora, el horno o cargar el coche. Precio €/kWh hora a hora, avisos de exceso solar y la próxima franja barata.',
-    tags: ['REACT', 'API REE', 'PWA'],
-    url: 'https://horalavadora.es',
-    domain: 'horalavadora.es',
-    image: 'horalavadora.png',
-    orientation: 'portrait',
-    theme: 'warm',
-    isNew: true,
-  },
-  {
     id: 'istqbeasy',
-    index: '02',
+    index: '01',
     title: 'ISTQBeasy',
     kicker: 'Producto propio',
     description:
