@@ -19,10 +19,6 @@ const HeroCollage = () => {
       <div className="hero__overlay" aria-hidden="true" />
 
       <div className="hero__inner section-wrap">
-        <span className="hero__sticker">BUILD<br />FAST</span>
-
-        <p className="hero__script script-accent">Digital Craftsman!</p>
-
         <h1 className="hero__headline display-title">
           Construimos <span className="hero__hl-accent">productos digitales</span> de punta a punta
         </h1>

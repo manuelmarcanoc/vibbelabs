@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-/* Vídeo del logo, difuminado, como fondo a sangre */
+/* Vídeo del logo, limpio como fondo */
 .hero__bg {
   position: absolute;
   inset: 0;
@@ -15,22 +15,15 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: blur(12px) saturate(115%);
-  transform: scale(1.3);
   z-index: 0;
 }
 
-/* Velo para que el texto se lea con nitidez sobre el vídeo */
+/* Velo ligero para que el texto se lea sobre el vídeo */
 .hero__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(
-    120% 95% at 50% 38%,
-    rgba(251, 247, 241, 0.5) 0%,
-    rgba(251, 247, 241, 0.86) 70%,
-    rgba(251, 247, 241, 0.95) 100%
-  );
+  background: rgba(251, 247, 241, 0.4);
 }
 
 .hero__inner {
@@ -46,29 +39,7 @@
   padding-bottom: clamp(3.5rem, 8vw, 6rem);
 }
 
-.hero__sticker {
-  position: absolute;
-  top: clamp(0.75rem, 2vw, 1.5rem);
-  right: clamp(0.75rem, 3vw, 2rem);
-  z-index: 3;
-  background: var(--red);
-  color: var(--on-red);
-  font-family: var(--font-display);
-  font-size: clamp(0.8rem, 1.6vw, 1rem);
-  line-height: 1.05;
-  text-align: center;
-  padding: 0.55rem 0.75rem;
-  transform: rotate(9deg);
-  letter-spacing: 0.04em;
-  box-shadow: 3px 3px 0 var(--black);
-}
 
-.hero__script {
-  margin: 0;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  color: var(--black);
-  transform: rotate(-3deg);
-}
 
 .hero__headline {
   margin: 0;
@@ -100,11 +71,6 @@
 }
 
 @media (max-width: 520px) {
-  .hero__sticker {
-    right: 0.25rem;
-    top: -0.5rem;
-  }
-
   .hero__actions {
     width: 100%;
   }
