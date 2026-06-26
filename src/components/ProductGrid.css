@@ -31,6 +31,12 @@
   gap: clamp(1.25rem, 3vw, 2rem);
 }
 
+/* Si solo hay 1 proyecto, lo centramos y limitamos su ancho máximo para que no se vea gigante ni deforme */
+.portfolio__grid:has(> :last-child:nth-child(1)) {
+  grid-template-columns: minmax(min(100%, 45rem), 1fr);
+  justify-content: center;
+}
+
 /* —— Project card —— */
 .pcard {
   position: relative;
