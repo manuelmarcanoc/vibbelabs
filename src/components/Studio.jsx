@@ -34,9 +34,6 @@ const Studio = () => {
               </li>
             </ul>
           </div>
-          <p className="studio__signature script-accent">
-            Fundado por Manuel — Digital Craftsman
-          </p>
         </div>
       </div>
     </section>

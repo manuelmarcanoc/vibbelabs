@@ -3,8 +3,23 @@ import './ProductGrid.css';
 
 const projects = [
   {
-    id: 'istqbeasy',
+    id: 'kooz',
     index: '01',
+    title: 'Kooz',
+    kicker: 'Web Corporativa',
+    description:
+      'Web corporativa para empresa especializada en fundas térmicas para bebidas y merchandising para festivales y empresas de eventos.',
+    tags: ['WEB', 'MERCH', 'EVENTOS'],
+    url: 'https://kooz.es',
+    domain: 'kooz.es',
+    image: 'kooz.png',
+    orientation: 'landscape',
+    theme: 'warm',
+    isNew: true,
+  },
+  {
+    id: 'istqbeasy',
+    index: '02',
     title: 'ISTQBeasy',
     kicker: 'Producto propio',
     description:
@@ -15,7 +30,7 @@ const projects = [
     image: 'istqbeasy.png',
     orientation: 'landscape',
     theme: 'violet',
-    isNew: true,
+    isNew: false,
   },
 ];
 
