@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './FooterContact.css';
 
-// Endpoint de Formspree. Tu correo NO aparece aquí: queda configurado en
-// Formspree y oculto tras este ID con hash. Reemplaza YOUR_FORM_ID por el ID
-// real de tu formulario (https://formspree.io).
+// TODO(Manuel): sustituye YOUR_FORM_ID por el ID real de tu formulario en
+// https://formspree.io/forms — en cuanto exista, el formulario envía por
+// Formspree. Hasta entonces, cae automáticamente a un mailto: para que el
+// formulario nunca se quede "muerto" para quien lo rellene.
 const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FALLBACK_EMAIL = 'manuelmarcanocubillas@gmail.com';
+const isFormConfigured = !FORM_ENDPOINT.includes('YOUR_FORM_ID');
 
 const FooterContact = () => {
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
@@ -12,12 +15,24 @@ const FooterContact = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
-    setStatus('sending');
+    const data = new FormData(form);
 
+    if (!isFormConfigured) {
+      const subject = encodeURIComponent(`Proyecto — ${data.get('name') || 'contacto web'}`);
+      const body = encodeURIComponent(
+        `${data.get('message') || ''}\n\n— ${data.get('name') || ''} (${data.get('email') || ''})`
+      );
+      window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
+      setStatus('success');
+      form.reset();
+      return;
+    }
+
+    setStatus('sending');
     try {
       const response = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        body: new FormData(form),
+        body: data,
         headers: { Accept: 'application/json' },
       });
       if (response.ok) {
@@ -33,9 +48,12 @@ const FooterContact = () => {
 
   return (
     <footer className="footer" id="contacto">
-      <p className="footer__tagline display-title" data-reveal>HABLEMOS</p>
+      <p className="mono-label footer__eyebrow">HABLEMOS</p>
+      <p className="footer__tagline display-title" data-reveal>
+        Cuéntanos qué quieres construir
+      </p>
       <p className="footer__sub" data-reveal>
-        Cuéntanos qué quieres construir y te respondemos en 24-48h.
+        Te respondemos en 24-48h.
       </p>
 
       {status === 'success' ? (
@@ -94,27 +112,6 @@ const FooterContact = () => {
       )}
 
       <p className="footer__location">Barcelona</p>
-
-      <div className="footer__socials">
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer__social-btn"
-          aria-label="LinkedIn"
-        >
-          IN
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer__social-btn"
-          aria-label="Instagram"
-        >
-          IG
-        </a>
-      </div>
 
       <p className="footer__copy">© 2026 Vibbe Labs</p>
 

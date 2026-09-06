@@ -4,22 +4,22 @@ import './Services.css';
 const services = [
   {
     num: '01',
-    title: 'DESARROLLO WEB & MÓVIL',
+    title: 'Desarrollo web & móvil',
     text: 'SPAs, apps React y despliegues cloud con foco en rendimiento y mantenibilidad.',
   },
   {
     num: '02',
-    title: 'DATOS & DASHBOARDS',
+    title: 'Datos & dashboards',
     text: 'ETL, visualización y métricas operativas para equipos que necesitan claridad.',
   },
   {
     num: '03',
-    title: 'AUTOMATIZACIÓN',
+    title: 'Automatización',
     text: 'Integraciones, bots y flujos n8n que eliminan trabajo repetitivo.',
   },
   {
     num: '04',
-    title: 'ARQUITECTURA & CONSULTORÍA',
+    title: 'Arquitectura & consultoría',
     text: 'Revisiones técnicas, stack y roadmap para escalar sin deuda innecesaria.',
   },
 ];
@@ -29,7 +29,7 @@ const Services = () => {
     <section className="services" id="servicios">
       <div className="services__layout section-wrap">
         <h2 className="services__heading display-title" data-reveal>
-          SERVICIOS <span aria-hidden="true">➔</span>
+          Servicios <span aria-hidden="true">➔</span>
         </h2>
 
         <ul className="services__list">

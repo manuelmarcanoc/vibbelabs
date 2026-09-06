@@ -6,15 +6,13 @@ const projects = [
     id: 'kooz',
     index: '01',
     title: 'Kooz',
-    kicker: 'Web Corporativa',
+    kicker: 'Web corporativa',
     description:
       'Web corporativa para empresa especializada en fundas térmicas para bebidas y merchandising para festivales y empresas de eventos.',
     tags: ['WEB', 'MERCH', 'EVENTOS'],
     url: 'https://kooz.es',
     domain: 'kooz.es',
     image: 'kooz.png',
-    orientation: 'landscape',
-    theme: 'warm',
     isNew: true,
   },
   {
@@ -28,73 +26,72 @@ const projects = [
     url: 'https://istqbeasy.com',
     domain: 'istqbeasy.com',
     image: 'istqbeasy.png',
-    orientation: 'landscape',
-    theme: 'violet',
     isNew: false,
   },
 ];
 
 const ProductGrid = () => {
   return (
-    <section className="portfolio" id="proyectos">
+    <section className="cases" id="proyectos">
       <div className="section-wrap">
-        <header className="portfolio__head" data-reveal>
-          <span className="section-tab">PROYECTOS</span>
-          <h2 className="portfolio__heading display-title">
-            LO QUE <span className="script-accent">construimos</span>
-          </h2>
-          <p className="portfolio__intro body-text">
+        <header className="cases__head" data-reveal>
+          <p className="mono-label">PROYECTOS</p>
+          <h2 className="cases__heading display-title">Lo que construimos</h2>
+          <p className="cases__intro body-text">
             Productos digitales reales, en producción y con usuarios. Haz clic para visitarlos.
           </p>
         </header>
 
-        <div className="portfolio__grid">
+        <div className="cases__list">
           {projects.map((project, i) => (
             <article
               key={project.id}
-              className={`pcard pcard--${project.theme}`}
-              data-reveal={i % 2 === 0 ? 'left' : 'right'}
+              className={`case ${i % 2 === 1 ? 'case--reverse' : ''}`}
+              data-reveal
               style={{ '--reveal-delay': `${i * 0.08}s` }}
             >
               <a
-                className="pcard__link"
+                className="case__media"
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visitar ${project.title} (${project.domain})`}
               >
-                <div className="pcard__top">
-                  <span className="pcard__index">{project.index}</span>
-                  <div className="pcard__heading">
-                    <p className="pcard__kicker">{project.kicker}</p>
-                    <h3 className="pcard__title display-title">{project.title}</h3>
-                  </div>
-                  {project.isNew && <span className="pill pill--red pcard__badge">NUEVO</span>}
+                <img
+                  src={`${process.env.PUBLIC_URL}/${project.image}`}
+                  alt={`Captura de ${project.title}`}
+                  loading="lazy"
+                />
+              </a>
+
+              <div className="case__body">
+                <div className="case__meta">
+                  <span className="mono-label case__index">{project.index}</span>
+                  <span className="pill">{project.kicker}</span>
+                  {project.isNew && <span className="pill pill--red">NUEVO</span>}
                 </div>
 
-                <div className={`pcard__shot pcard__shot--${project.orientation}`}>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/${project.image}`}
-                    alt={`Captura de ${project.title}`}
-                    loading="lazy"
-                  />
-                </div>
+                <h3 className="case__title display-title">{project.title}</h3>
+                <p className="case__desc body-text">{project.description}</p>
 
-                <p className="pcard__desc body-text">{project.description}</p>
-
-                <div className="pcard__footer">
-                  <div className="pcard__tags">
+                <div className="case__footer">
+                  <div className="case__tags">
                     {project.tags.map((tag) => (
                       <span key={tag} className="pill">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <span className="pcard__visit">
+                  <a
+                    className="case__link"
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {project.domain} <span aria-hidden="true">↗</span>
-                  </span>
+                  </a>
                 </div>
-              </a>
+              </div>
             </article>
           ))}
         </div>

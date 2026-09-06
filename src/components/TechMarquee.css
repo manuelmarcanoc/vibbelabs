@@ -1,22 +1,37 @@
 .tech-strip {
-  background: var(--white);
-  border-top: 2px solid var(--black);
-  border-bottom: 2px solid var(--black);
-  overflow: hidden;
-  padding: 1.25rem 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(2rem, 5vw, 3rem) var(--section-pad);
 }
 
-.tech-strip__track {
+.tech-strip__label {
+  margin-bottom: 1rem;
+}
+
+.tech-strip__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  width: max-content;
-  animation: marquee 45s linear infinite;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
 }
 
-.tech-strip__text {
+.tech-strip__list li {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  color: var(--black);
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-  padding-right: 0;
+  font-weight: 500;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+}
+
+.tech-strip__list li::after {
+  content: '·';
+  margin-left: 0.75rem;
+  color: var(--line-strong);
+}
+
+.tech-strip__list li:last-child::after {
+  content: '';
+  margin: 0;
 }

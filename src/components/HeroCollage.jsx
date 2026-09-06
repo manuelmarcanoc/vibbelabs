@@ -19,8 +19,11 @@ const HeroCollage = () => {
       <div className="hero__overlay" aria-hidden="true" />
 
       <div className="hero__inner section-wrap">
+        <p className="mono-label hero__eyebrow">ESTUDIO DE SOFTWARE &amp; DATOS</p>
+
         <h1 className="hero__headline display-title">
-          Construimos <span className="hero__hl-accent">productos digitales</span> de punta a punta
+          Construimos productos digitales
+          <span className="hero__hl-accent"> de punta a punta</span>
         </h1>
 
         <p className="hero__lead">
@@ -32,7 +35,7 @@ const HeroCollage = () => {
           <a href="#proyectos" className="btn-pill">
             Ver proyectos
           </a>
-          <a href="#contacto" className="btn-pill btn-pill--white">
+          <a href="#contacto" className="btn-pill btn-pill--ghost">
             Hablemos
           </a>
         </div>

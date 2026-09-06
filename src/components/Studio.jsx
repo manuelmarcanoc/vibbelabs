@@ -1,6 +1,11 @@
 import React from 'react';
 import './Studio.css';
 
+const shipped = [
+  { label: 'kooz.es', url: 'https://kooz.es' },
+  { label: 'istqbeasy.com', url: 'https://istqbeasy.com' },
+];
+
 const Studio = () => {
   return (
     <section className="studio" id="estudio">
@@ -10,7 +15,7 @@ const Studio = () => {
         style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/estudio.png)` }}
       />
       <div className="section-wrap">
-        <p className="label-caps studio__label">EL ESTUDIO</p>
+        <p className="mono-label studio__label">EL ESTUDIO</p>
 
         <div className="studio__bio" data-reveal="zoom">
           <p className="studio__bio-text">
@@ -26,12 +31,14 @@ const Studio = () => {
           <div className="studio__shipped" aria-label="Productos en producción">
             <p className="studio__shipped-label">En producción</p>
             <ul className="studio__shipped-list">
-              <li>
-                <a href="https://istqbeasy.com" target="_blank" rel="noopener noreferrer">
-                  <span>istqbeasy.com</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </li>
+              {shipped.map((item) => (
+                <li key={item.url}>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    <span>{item.label}</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

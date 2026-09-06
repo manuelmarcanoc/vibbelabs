@@ -2,10 +2,8 @@ import React from 'react';
 import './App.css';
 import useScrollReveal from './useScrollReveal';
 import Interactions from './components/Interactions';
-import FlyingVial from './components/FlyingVial';
 import NavBar from './components/NavBar';
 import HeroCollage from './components/HeroCollage';
-import TickerTape from './components/TickerTape';
 import ProductGrid from './components/ProductGrid';
 import Services from './components/Services';
 import Studio from './components/Studio';
@@ -18,14 +16,9 @@ function App() {
   return (
     <div className="app-container">
       <Interactions />
-      <FlyingVial />
       <NavBar />
-      <section className="surface surface--white" aria-label="Inicio y proyectos">
-        <HeroCollage />
-        <TickerTape />
-        <ProductGrid />
-      </section>
-
+      <HeroCollage />
+      <ProductGrid />
       <Services />
       <Studio />
       <TechMarquee />

@@ -1,20 +1,28 @@
 import React from 'react';
 import './TechMarquee.css';
 
-const TECH_TEXT =
-  'FIREBASE PYTHON NODE.JS GCP N8N POSTGRES LOOKER FLUTTER REACT TYPESCRIPT ';
+const STACK = [
+  'Firebase',
+  'Python',
+  'Node.js',
+  'GCP',
+  'n8n',
+  'Postgres',
+  'Looker',
+  'Flutter',
+  'React',
+  'TypeScript',
+];
 
 const TechMarquee = () => {
-  const track = TECH_TEXT.repeat(6);
-
   return (
-    <section className="tech-strip" aria-label="Tecnologías">
-      <div className="tech-strip__track">
-        <span className="tech-strip__text">{track}</span>
-        <span className="tech-strip__text" aria-hidden="true">
-          {track}
-        </span>
-      </div>
+    <section className="tech-strip section-wrap" aria-label="Tecnologías">
+      <p className="mono-label tech-strip__label">STACK</p>
+      <ul className="tech-strip__list">
+        {STACK.map((tech) => (
+          <li key={tech}>{tech}</li>
+        ))}
+      </ul>
     </section>
   );
 };

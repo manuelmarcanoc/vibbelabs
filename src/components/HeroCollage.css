@@ -1,13 +1,12 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: #e9e6df;
-  min-height: clamp(26rem, 62vh, 42rem);
+  background: var(--ink);
+  min-height: clamp(28rem, 78vh, 46rem);
   display: flex;
   align-items: center;
 }
 
-/* Vídeo del logo, limpio como fondo */
 .hero__bg {
   position: absolute;
   inset: 0;
@@ -18,12 +17,11 @@
   z-index: 0;
 }
 
-/* Velo ligero para que el texto se lea sobre el vídeo */
 .hero__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(251, 247, 241, 0.4);
+  background: linear-gradient(180deg, rgba(21, 20, 20, 0.55) 0%, rgba(21, 20, 20, 0.72) 100%);
 }
 
 .hero__inner {
@@ -32,42 +30,56 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: clamp(1rem, 2.5vw, 1.6rem);
-  padding-top: clamp(3.5rem, 8vw, 6rem);
-  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+  align-items: flex-start;
+  text-align: left;
+  gap: clamp(1rem, 2.5vw, 1.4rem);
+  padding-top: clamp(4rem, 10vw, 7rem);
+  padding-bottom: clamp(4rem, 10vw, 7rem);
 }
 
-
+.hero__eyebrow {
+  color: rgba(250, 248, 244, 0.6);
+  margin: 0;
+}
 
 .hero__headline {
   margin: 0;
-  font-size: clamp(2.5rem, 7vw, 6rem);
-  line-height: 0.96;
-  max-width: 16ch;
-  color: var(--black);
+  font-size: clamp(2.25rem, 5.6vw, 4.5rem);
+  line-height: 1.04;
+  max-width: 20ch;
+  color: var(--paper);
 }
 
 .hero__hl-accent {
-  color: var(--red);
+  color: var(--paper);
+  opacity: 0.55;
 }
 
 .hero__lead {
   margin: 0;
-  max-width: 42rem;
+  max-width: 34rem;
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
-  line-height: 1.55;
-  color: #2c2c2c;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(250, 248, 244, 0.82);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.hero .btn-pill--ghost {
+  border-color: rgba(250, 248, 244, 0.4);
+  color: var(--paper);
+}
+
+.hero .btn-pill--ghost:hover {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
 }
 
 @media (max-width: 520px) {
