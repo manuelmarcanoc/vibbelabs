@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Vista previa local compilada (no forma parte del build de producción)
+/preview
