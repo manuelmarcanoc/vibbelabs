@@ -3,11 +3,12 @@ import './App.css';
 import useScrollReveal from './useScrollReveal';
 import Interactions from './components/Interactions';
 import NavBar from './components/NavBar';
-import HeroCollage from './components/HeroCollage';
-import ProductGrid from './components/ProductGrid';
+import Hero from './components/Hero';
+import Cases from './components/Cases';
 import Services from './components/Services';
+import Process from './components/Process';
 import Studio from './components/Studio';
-import TechMarquee from './components/TechMarquee';
+import Stack from './components/Stack';
 import FooterContact from './components/FooterContact';
 
 function App() {
@@ -17,11 +18,14 @@ function App() {
     <div className="app-container">
       <Interactions />
       <NavBar />
-      <HeroCollage />
-      <ProductGrid />
-      <Services />
-      <Studio />
-      <TechMarquee />
+      <main>
+        <Hero />
+        <Cases />
+        <Services />
+        <Process />
+        <Studio />
+        <Stack />
+      </main>
       <FooterContact />
     </div>
   );

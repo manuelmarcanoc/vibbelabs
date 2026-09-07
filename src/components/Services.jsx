@@ -1,4 +1,5 @@
 import React from 'react';
+import Kinetic from './Kinetic';
 import './Services.css';
 
 const services = [
@@ -27,24 +28,25 @@ const services = [
 const Services = () => {
   return (
     <section className="services" id="servicios">
-      <div className="services__layout section-wrap">
-        <h2 className="services__heading display-title" data-reveal>
-          Servicios <span aria-hidden="true">➔</span>
-        </h2>
+      <div className="section-wrap">
+        <header className="services__head">
+          <p className="mono-label" data-reveal="fade">
+            SERVICIOS
+          </p>
+          <h2 className="services__heading display-title" data-reveal="kinetic">
+            <Kinetic text="Lo que hacemos bien." accentFrom={3} />
+          </h2>
+        </header>
 
         <ul className="services__list">
           {services.map((s, i) => (
-            <li
-              key={s.num}
-              className="services__item"
-              data-reveal
-              style={{ '--reveal-delay': `${i * 0.08}s` }}
-            >
-              <span className="services__num">{s.num}</span>
-              <div className="services__item-body">
-                <h3 className="services__item-title">{s.title}</h3>
-                <p className="body-text services__item-text">{s.text}</p>
-              </div>
+            <li key={s.num} className="services__item" data-reveal style={{ '--d': `${i * 0.06}s` }}>
+              <span className="services__num mono-label">{s.num}</span>
+              <h3 className="services__title">{s.title}</h3>
+              <p className="services__text">{s.text}</p>
+              <span className="services__arrow" aria-hidden="true">
+                ↗
+              </span>
             </li>
           ))}
         </ul>

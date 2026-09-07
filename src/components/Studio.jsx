@@ -1,46 +1,58 @@
 import React from 'react';
+import Kinetic from './Kinetic';
 import './Studio.css';
 
-const shipped = [
-  { label: 'kooz.es', url: 'https://kooz.es' },
-  { label: 'istqbeasy.com', url: 'https://istqbeasy.com' },
+const facts = [
+  'Trato directo con quien decide',
+  'Entregas visibles cada semana',
+  'Del boceto a producción',
 ];
 
 const Studio = () => {
   return (
     <section className="studio" id="estudio">
-      <div
-        className="studio__bg"
-        aria-hidden="true"
-        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/estudio.png)` }}
-      />
-      <div className="section-wrap">
-        <p className="mono-label studio__label">EL ESTUDIO</p>
+      <div className="studio__layout section-wrap">
+        <figure className="studio__figure" data-reveal="left">
+          <img
+            src={`${process.env.PUBLIC_URL}/estudio.png`}
+            alt="El escritorio del estudio"
+            loading="lazy"
+          />
+          <figcaption className="mono-label studio__caption">EL ESCRITORIO</figcaption>
+        </figure>
 
-        <div className="studio__bio" data-reveal="zoom">
-          <p className="studio__bio-text">
-            Vibbe Labs es un estudio de desarrollo independiente que nace de combinar la ingeniería
-            de software con la excelencia operativa. Llevamos productos desde la idea hasta
-            producción — React, Firebase, Python y pipelines que conectan el negocio con métricas
-            reales. Trabajamos con startups y equipos que valoran la ejecución rápida y sin
-            burocracia.
+        <div className="studio__body">
+          <p className="mono-label" data-reveal="fade">
+            EL ESTUDIO
           </p>
-        </div>
 
-        <div className="studio__founder" data-reveal style={{ '--reveal-delay': '0.1s' }}>
-          <div className="studio__shipped" aria-label="Productos en producción">
-            <p className="studio__shipped-label">En producción</p>
-            <ul className="studio__shipped-list">
-              {shipped.map((item) => (
-                <li key={item.url}>
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    <span>{item.label}</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h2 className="studio__heading display-title" data-reveal="kinetic">
+            <Kinetic text="Un estudio pequeño" />
+            <Kinetic text="que entrega." delay={0.16} accentFrom={1} />
+          </h2>
+
+          <p className="studio__text body-text" data-reveal style={{ '--d': '0.08s' }}>
+            Vibbe Labs combina ingeniería de software con obsesión por la ejecución. Llevamos
+            productos de la idea a producción — React, Firebase, Python y pipelines que conectan el
+            negocio con métricas reales. Trabajamos con equipos que valoran avanzar rápido sin
+            romper lo importante.
+          </p>
+
+          <ul className="studio__facts" data-reveal style={{ '--d': '0.14s' }}>
+            {facts.map((fact) => (
+              <li key={fact}>
+                <span aria-hidden="true">—</span>
+                {fact}
+              </li>
+            ))}
+          </ul>
+
+          <a className="btn studio__cta" href="#contacto" data-reveal style={{ '--d': '0.2s' }}>
+            Trabajemos juntos
+            <span className="btn__arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
         </div>
       </div>
     </section>

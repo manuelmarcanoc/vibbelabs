@@ -1,0 +1,186 @@
+.cases {
+  position: relative;
+  padding: clamp(4.5rem, 11vw, 9rem) 0;
+  background: var(--paper);
+}
+
+.cases__head {
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cases__heading {
+  font-size: var(--display-l);
+  max-width: 16ch;
+}
+
+.cases__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 10vw, 8rem);
+}
+
+.case {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1.75rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.case--flip .case__media {
+  order: 2;
+}
+
+.case--flip .case__body {
+  order: 1;
+}
+
+/* —— Marco de la captura —— */
+.case__media {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--paper-lift);
+  border: 1px solid var(--line);
+  aspect-ratio: 16 / 11;
+  box-shadow: 0 24px 60px -32px rgba(31, 30, 28, 0.5);
+  transition: box-shadow 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.case__media:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 80px -34px rgba(31, 30, 28, 0.55);
+}
+
+.case__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.06) translateY(calc(var(--p, 0) * -2%));
+  transition: transform 0.7s var(--ease-out);
+  will-change: transform;
+}
+
+.case__media:hover img {
+  transform: scale(1.1) translateY(calc(var(--p, 0) * -2%));
+}
+
+/* Barra que sube al pasar el ratón */
+.case__cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(1rem, 3vw, 1.6rem);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: translateY(101%);
+  transition: transform 0.45s var(--ease-out);
+}
+
+.case__media:hover .case__cta,
+.case__media:focus-visible .case__cta {
+  transform: translateY(0);
+}
+
+.case__cta-arrow {
+  transition: transform 0.45s var(--ease-out) 0.05s;
+}
+
+.case__media:hover .case__cta-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* —— Texto del caso —— */
+.case__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.case__ghost {
+  position: absolute;
+  top: -0.86em;
+  left: -0.06em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(5.5rem, 11vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-strong);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.32;
+}
+
+.case__meta,
+.case__tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.case__year {
+  margin-left: 0.25rem;
+}
+
+.case__title {
+  position: relative;
+  z-index: 1;
+  font-size: var(--display-m);
+}
+
+.case__desc {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 42ch;
+}
+
+.case__link {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.case__link:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .case,
+  .case--flip {
+    grid-template-columns: 1fr;
+  }
+
+  .case--flip .case__media,
+  .case--flip .case__body {
+    order: initial;
+  }
+
+  .case__ghost {
+    top: -0.42em;
+    font-size: clamp(6rem, 26vw, 9rem);
+  }
+}

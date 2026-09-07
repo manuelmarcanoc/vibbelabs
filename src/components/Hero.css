@@ -1,0 +1,198 @@
+.hero {
+  position: relative;
+  background: var(--paper-hero);
+  padding: clamp(5.5rem, 9vw, 7rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Halo cálido que sigue al puntero */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    42rem 42rem at calc(50% + var(--px, 0) * 20%) calc(42% + var(--py, 0) * 16%),
+    rgba(224, 71, 44, 0.16),
+    transparent 62%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.hero__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(224, 71, 44, 0.55);
+  animation: hero-pulse 2.4s var(--ease-soft) infinite;
+}
+
+@keyframes hero-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(224, 71, 44, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(224, 71, 44, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(224, 71, 44, 0);
+  }
+}
+
+.hero__meta {
+  margin: 0;
+}
+
+/* —— El logotipo animado como protagonista —— */
+.hero__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding: clamp(0.5rem, 1.5vw, 1rem) var(--section-pad);
+}
+
+.hero__mark {
+  width: min(52vw, 500px);
+  height: auto;
+  mix-blend-mode: multiply;
+  transform: translate3d(calc(var(--px, 0) * 14px), calc(var(--py, 0) * 12px - var(--sy, 0) * 40px), 0)
+    scale(calc(1 - var(--sy, 0) * 0.04));
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* —— Titular + apoyo —— */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: end;
+}
+
+.hero__headline {
+  font-size: clamp(1.9rem, 1rem + 3.4vw, 3.9rem);
+  max-width: 15ch;
+  margin: 0;
+}
+
+.hero__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 0.4rem;
+}
+
+.hero__lead {
+  margin: 0;
+  max-width: 34ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* —— Indicador de scroll —— */
+.hero__cue {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.hero__cue-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(180deg, transparent, var(--line-strong));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__cue-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  animation: cue-run 2.2s var(--ease-soft) infinite;
+}
+
+@keyframes cue-run {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1.75rem;
+  }
+
+  .hero__headline {
+    max-width: 18ch;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero__mark {
+    width: 76vw;
+  }
+
+  .hero__actions .btn {
+    flex: 1;
+  }
+
+  .hero__meta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__dot,
+  .hero__cue-line::after {
+    animation: none;
+  }
+
+  .hero__mark {
+    transform: none;
+  }
+}

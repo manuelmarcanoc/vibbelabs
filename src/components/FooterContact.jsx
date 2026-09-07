@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import Kinetic from './Kinetic';
 import './FooterContact.css';
 
 // TODO(Manuel): sustituye YOUR_FORM_ID por el ID real de tu formulario en
-// https://formspree.io/forms — en cuanto exista, el formulario envía por
-// Formspree. Hasta entonces, cae automáticamente a un mailto: para que el
-// formulario nunca se quede "muerto" para quien lo rellene.
+// https://formspree.io/forms — mientras no exista, el formulario cae a un
+// mailto: para que nunca se quede "muerto" para quien lo rellene.
 const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-const FALLBACK_EMAIL = 'manuelmarcanocubillas@gmail.com';
+const CONTACT_EMAIL = 'manuelmarcanocubillas@gmail.com';
 const isFormConfigured = !FORM_ENDPOINT.includes('YOUR_FORM_ID');
 
 const FooterContact = () => {
@@ -22,7 +22,7 @@ const FooterContact = () => {
       const body = encodeURIComponent(
         `${data.get('message') || ''}\n\n— ${data.get('name') || ''} (${data.get('email') || ''})`
       );
-      window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
       setStatus('success');
       form.reset();
       return;
@@ -47,82 +47,111 @@ const FooterContact = () => {
   };
 
   return (
-    <footer className="footer" id="contacto">
-      <p className="mono-label footer__eyebrow">HABLEMOS</p>
-      <p className="footer__tagline display-title" data-reveal>
-        Cuéntanos qué quieres construir
-      </p>
-      <p className="footer__sub" data-reveal>
-        Te respondemos en 24-48h.
-      </p>
+    <footer className="footer u-dark" id="contacto">
+      <div className="footer__glow" aria-hidden="true" />
 
-      {status === 'success' ? (
-        <p className="footer__thanks" data-reveal>
-          ¡Gracias! Hemos recibido tu mensaje. Te respondemos muy pronto.
-        </p>
-      ) : (
-        <form className="footer__form" onSubmit={handleSubmit} data-reveal>
-          <div className="footer__row">
-            <input
-              className="footer__input"
-              type="text"
-              name="name"
-              placeholder="Tu nombre"
-              autoComplete="name"
-              required
-            />
-            <input
-              className="footer__input"
-              type="email"
-              name="email"
-              placeholder="Tu email"
-              autoComplete="email"
-              required
-            />
-          </div>
-          <textarea
-            className="footer__input footer__textarea"
-            name="message"
-            placeholder="¿Qué proyecto tienes en mente?"
-            rows="4"
-            required
-          />
-          {/* Honeypot anti-spam: invisible para humanos */}
-          <input
-            type="text"
-            name="_gotcha"
-            tabIndex="-1"
-            autoComplete="off"
-            className="footer__honey"
-            aria-hidden="true"
-          />
-          <button
-            className="btn-pill footer__submit"
-            type="submit"
-            disabled={status === 'sending'}
-          >
-            {status === 'sending' ? 'Enviando…' : 'Enviar mensaje'}
-          </button>
-          {status === 'error' && (
-            <p className="footer__error">
-              No se pudo enviar. Inténtalo de nuevo en un momento.
+      <div className="footer__top section-wrap">
+        <div className="footer__intro">
+          <p className="mono-label" data-reveal="fade">
+            CONTACTO
+          </p>
+          <h2 className="footer__title display-title" data-reveal="kinetic">
+            <Kinetic text="Cuéntanos qué" />
+            <Kinetic text="quieres construir." delay={0.16} accentFrom={1} />
+          </h2>
+          <p className="footer__sub body-text" data-reveal style={{ '--d': '0.08s' }}>
+            Respondemos en 24-48h. Sin formularios eternos ni llamadas de descubrimiento de una
+            hora.
+          </p>
+
+          <a className="footer__mail link-draw" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
+          </a>
+        </div>
+
+        <div className="footer__form-wrap" data-reveal="right">
+          {status === 'success' ? (
+            <p className="footer__thanks">
+              ¡Gracias! Hemos recibido tu mensaje. Te respondemos muy pronto.
             </p>
+          ) : (
+            <form className="footer__form" onSubmit={handleSubmit}>
+              <div className="footer__field">
+                <input
+                  id="f-name"
+                  className="footer__input"
+                  type="text"
+                  name="name"
+                  placeholder=" "
+                  autoComplete="name"
+                  required
+                />
+                <label className="footer__label" htmlFor="f-name">
+                  Tu nombre
+                </label>
+              </div>
+
+              <div className="footer__field">
+                <input
+                  id="f-email"
+                  className="footer__input"
+                  type="email"
+                  name="email"
+                  placeholder=" "
+                  autoComplete="email"
+                  required
+                />
+                <label className="footer__label" htmlFor="f-email">
+                  Tu email
+                </label>
+              </div>
+
+              <div className="footer__field">
+                <textarea
+                  id="f-msg"
+                  className="footer__input footer__textarea"
+                  name="message"
+                  placeholder=" "
+                  rows="4"
+                  required
+                />
+                <label className="footer__label" htmlFor="f-msg">
+                  ¿Qué proyecto tienes en mente?
+                </label>
+              </div>
+
+              {/* Honeypot anti-spam: invisible para humanos */}
+              <input
+                type="text"
+                name="_gotcha"
+                tabIndex="-1"
+                autoComplete="off"
+                className="footer__honey"
+                aria-hidden="true"
+              />
+
+              <button className="btn footer__submit" type="submit" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Enviando…' : 'Enviar mensaje'}
+                <span className="btn__arrow" aria-hidden="true">
+                  →
+                </span>
+              </button>
+
+              {status === 'error' && (
+                <p className="footer__error">No se pudo enviar. Inténtalo de nuevo en un momento.</p>
+              )}
+            </form>
           )}
-        </form>
-      )}
+        </div>
+      </div>
 
-      <p className="footer__location">Barcelona</p>
-
-      <p className="footer__copy">© 2026 Vibbe Labs</p>
-
-      <a
-        href="https://buymeacoffee.com/manuelmc"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="footer__coffee"
-      >
-        Buy me a coffee
-      </a>
+      <div className="footer__bottom section-wrap">
+        <p className="mono-label">© 2026 VIBBE LABS</p>
+        <p className="mono-label">BARCELONA — ESPAÑA</p>
+        <a className="mono-label footer__up" href="#inicio">
+          VOLVER ARRIBA ↑
+        </a>
+      </div>
     </footer>
   );
 };
