@@ -6,7 +6,7 @@ import React from 'react';
 const Wordmark = ({ className = '', title = 'Vibbe Labs' }) => (
   <svg
     className={`wordmark ${className}`}
-    viewBox="4179.5 1867.1 11103.9 8259.0"
+    viewBox="415.8 201.2 1114.7 830.3"
     role="img"
     aria-label={title}
     xmlns="http://www.w3.org/2000/svg"
