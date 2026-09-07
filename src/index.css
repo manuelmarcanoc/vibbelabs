@@ -203,6 +203,7 @@ video {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
   overflow: hidden;
   isolation: isolate;
   cursor: pointer;

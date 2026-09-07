@@ -1,6 +1,5 @@
 import React from 'react';
 import Lines from './Lines';
-import Wordmark from './Wordmark';
 import Marquee from './Marquee';
 import './Hero.css';
 
@@ -43,10 +42,6 @@ const Hero = () => {
         className="hero__mq"
         items={['Diseño', 'Desarrollo', 'Datos', 'Automatización', 'Despliegue']}
       />
-
-      <div className="hero__mark-wrap" aria-hidden="true" data-track="through">
-        <Wordmark className="hero__mark" />
-      </div>
     </section>
   );
 };

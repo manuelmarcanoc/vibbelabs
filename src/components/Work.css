@@ -11,20 +11,21 @@
 }
 
 .work__stack {
+  max-width: var(--maxw);
+  margin: 0 auto;
   padding: 0 var(--pad) clamp(4rem, 10vw, 8rem);
 }
 
 .work__item {
   position: sticky;
-  top: calc(var(--nav-h) + var(--i) * 1.4rem);
-  padding-bottom: 3rem;
+  top: calc(var(--nav-h) + var(--i) * 1.6rem);
+  padding-bottom: clamp(6rem, 22vh, 14rem);
 }
 
 .work__card {
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: clamp(1.25rem, 2.5vw, 2rem);
-  height: min(78vh, 720px);
   padding: clamp(1.25rem, 2.5vw, 2rem);
   background: var(--panel);
   color: var(--paper-2);
@@ -54,10 +55,22 @@
   margin-right: auto;
 }
 
+/* El panel va a todo el ancho, pero el contenido se alinea en una columna
+   de 1080px para que la captura no se amplíe y se vea nítida. */
+.work__top,
+.work__shot,
+.work__bottom {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .work__shot {
   position: relative;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.06);
+  aspect-ratio: 16 / 9;
 }
 
 .work__shot img {

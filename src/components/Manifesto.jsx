@@ -2,7 +2,7 @@ import React from 'react';
 import './Manifesto.css';
 
 const TEXT =
-  'No subcontratamos, no pasamos el proyecto de mano en mano y no entregamos maquetas que luego nadie sabe montar. Lo dibuja y lo programa la misma gente.';
+  'No subcontratamos ni entregamos maquetas que luego nadie sabe montar. Lo dibuja y lo programa la misma gente.';
 
 const Manifesto = () => {
   const words = TEXT.split(' ');

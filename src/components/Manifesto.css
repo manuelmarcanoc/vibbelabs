@@ -1,6 +1,6 @@
 .man {
   position: relative;
-  height: 230vh;
+  height: 190vh;
   background: var(--paper);
 }
 
@@ -27,7 +27,7 @@
 }
 
 .man__w {
-  opacity: clamp(0.16, calc((var(--p, 0) * 1.35 * var(--n) - var(--i)) * 0.55 + 0.16), 1);
+  opacity: clamp(0.28, calc((var(--p, 0) * 1.5 * var(--n) - var(--i)) * 0.6 + 0.28), 1);
   transition: opacity 0.18s linear;
 }
 
