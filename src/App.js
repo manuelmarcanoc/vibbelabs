@@ -3,6 +3,7 @@ import './App.css';
 import useScroll from './lib/useScroll';
 import Preloader from './components/Preloader';
 import Progress from './components/Progress';
+import Cursor from './components/Cursor';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Manifesto from './components/Manifesto';
@@ -21,6 +22,7 @@ function App() {
     <div className={`app ${ready ? 'app--ready' : ''}`}>
       <Preloader onDone={onDone} />
       <Progress />
+      <Cursor />
       <Nav />
       <main>
         <Hero />

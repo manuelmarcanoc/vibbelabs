@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Lines from './Lines';
+import Wordmark from './Wordmark';
 import './Contact.css';
 
 // TODO(Manuel): sustituye YOUR_FORM_ID por el ID real de tu formulario en
@@ -99,6 +100,10 @@ const Contact = () => {
             </form>
           )}
         </div>
+      </div>
+
+      <div className="ct__sign wrap" data-reveal="scale">
+        <Wordmark className="ct__mark" />
       </div>
 
       <div className="ct__bar wrap">

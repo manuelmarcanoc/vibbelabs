@@ -95,6 +95,18 @@
   color: var(--paper);
 }
 
+/* Firma de cierre: el logotipo, contenido, no a pantalla completa */
+.ct__sign {
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.ct__mark {
+  width: min(46vw, 340px);
+  height: auto;
+  color: var(--paper);
+  opacity: 0.9;
+}
+
 .ct__bar {
   display: flex;
   align-items: center;

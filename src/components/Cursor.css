@@ -1,0 +1,73 @@
+.cur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 950;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease),
+    background 0.3s var(--ease), border-color 0.3s var(--ease);
+  will-change: transform;
+}
+
+.cursor-on .cur {
+  opacity: 1;
+}
+
+/* Cuadrado macizo, pegado al puntero */
+.cur__dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}
+
+/* Marco que persigue con retardo. La mezcla por diferencia hace que se vea
+   tanto sobre el crudo como sobre las secciones oscuras. */
+.cur__box {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #fff;
+  mix-blend-mode: difference;
+}
+
+/* Sobre algo pulsable: el marco crece y el punto se encoge */
+.cursor-hot .cur__box {
+  width: 52px;
+  height: 52px;
+}
+
+.cursor-hot .cur__dot {
+  width: 4px;
+  height: 4px;
+}
+
+/* Sobre un campo de texto: el marco se convierte en una barra fina */
+.cursor-text .cur__box {
+  width: 2px;
+  height: 26px;
+}
+
+.cursor-down .cur__box {
+  width: 34px;
+  height: 34px;
+}
+
+/* Se oculta el cursor del sistema solo cuando el nuestro está activo */
+.has-cursor,
+.has-cursor a,
+.has-cursor button,
+.has-cursor label {
+  cursor: none;
+}
+
+/* En los campos de texto se conserva el cursor del sistema por comodidad */
+.has-cursor input,
+.has-cursor textarea {
+  cursor: text;
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .cur {
+    display: none;
+  }
+}
