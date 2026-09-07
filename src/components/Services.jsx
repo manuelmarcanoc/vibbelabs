@@ -1,52 +1,54 @@
 import React from 'react';
-import Kinetic from './Kinetic';
+import Lines from './Lines';
 import './Services.css';
 
 const services = [
   {
-    num: '01',
-    title: 'Desarrollo web & móvil',
-    text: 'Sitios y aplicaciones en React, con su despliegue y su dominio funcionando.',
+    n: '01',
+    title: 'Sitios y aplicaciones web',
+    text: 'Desde una web corporativa hasta una aplicación con usuarios, cuentas y panel propio.',
+    detail: 'React · Next · Firebase',
   },
   {
-    num: '02',
-    title: 'Datos & dashboards',
-    text: 'Procesos de datos, paneles y métricas para ver cómo va el negocio sin abrir diez pestañas.',
+    n: '02',
+    title: 'Datos y paneles',
+    text: 'Procesos que recogen y limpian datos, y paneles donde por fin se entienden.',
+    detail: 'Python · SQL · Looker',
   },
   {
-    num: '03',
+    n: '03',
     title: 'Automatización',
-    text: 'Integraciones entre herramientas y flujos en n8n para quitarse tareas repetitivas de encima.',
+    text: 'Integraciones y flujos que quitan de en medio el trabajo repetitivo de cada semana.',
+    detail: 'n8n · APIs · Scripts',
   },
   {
-    num: '04',
-    title: 'Arquitectura & consultoría',
-    text: 'Revisión de un proyecto que ya existe: qué falla, qué cuesta mantenerlo y por dónde seguir.',
+    n: '04',
+    title: 'Revisión técnica',
+    text: 'Segunda opinión sobre un proyecto en marcha: qué falla, qué cuesta y por dónde seguir.',
+    detail: 'Auditoría · Roadmap',
   },
 ];
 
 const Services = () => {
   return (
-    <section className="services" id="servicios">
-      <div className="section-wrap">
-        <header className="services__head">
-          <p className="mono-label" data-reveal="fade">
-            SERVICIOS
+    <section className="srv" id="servicios">
+      <div className="wrap">
+        <div className="srv__head">
+          <p className="mono" data-reveal="fade">
+            Servicios
           </p>
-          <h2 className="services__heading display-title" data-reveal="kinetic">
-            <Kinetic text="Lo que hacemos." accentFrom={2} />
+          <h2 className="d2" data-reveal="lines">
+            <Lines>{['En qué', <>ayudamos.</>]}</Lines>
           </h2>
-        </header>
+        </div>
 
-        <ul className="services__list">
+        <ul className="srv__list">
           {services.map((s, i) => (
-            <li key={s.num} className="services__item" data-reveal style={{ '--d': `${i * 0.06}s` }}>
-              <span className="services__num mono-label">{s.num}</span>
-              <h3 className="services__title">{s.title}</h3>
-              <p className="services__text">{s.text}</p>
-              <span className="services__arrow" aria-hidden="true">
-                ↗
-              </span>
+            <li className="srv__row" key={s.n} data-reveal style={{ '--d': `${i * 0.05}s` }}>
+              <span className="mono srv__n">{s.n}</span>
+              <h3 className="srv__title">{s.title}</h3>
+              <p className="srv__text">{s.text}</p>
+              <span className="mono srv__detail">{s.detail}</span>
             </li>
           ))}
         </ul>

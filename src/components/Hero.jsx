@@ -1,38 +1,51 @@
 import React from 'react';
-import Kinetic from './Kinetic';
+import Lines from './Lines';
 import Wordmark from './Wordmark';
+import Marquee from './Marquee';
 import './Hero.css';
 
 const Hero = () => {
   return (
     <section className="hero" id="inicio">
-      <div className="hero__inner section-wrap">
-        <div className="hero__top">
-          <Wordmark className="hero__mark" />
+      <div className="hero__head wrap">
+        <p className="mono hero__status">
+          <i className="hero__dot" aria-hidden="true" />
+          Disponible para nuevos proyectos
+        </p>
+        <p className="mono">Est. 2026 — España</p>
+      </div>
 
-          <div className="hero__aside">
-            <p className="hero__lead lead-text">
-              Vibbe Labs es un estudio de desarrollo. Hacemos sitios a medida, aplicaciones web y la
-              parte de datos que va detrás.
-            </p>
-            <div className="hero__actions">
-              <a href="#proyectos" className="btn">
-                Ver proyectos
-                <span className="btn__arrow" aria-hidden="true">
-                  ↘
-                </span>
-              </a>
-              <a href="#contacto" className="btn btn--ghost">
-                Escríbenos
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <h1 className="hero__headline display-title" data-reveal="kinetic">
-          <Kinetic text="Webs y productos digitales," />
-          <Kinetic text="del diseño al despliegue." delay={0.22} accentFrom={0} />
+      <div className="hero__title wrap" data-reveal="lines">
+        <h1 className="d1">
+          <Lines delay={0.15}>
+            {['Webs y productos', <>digitales, del diseño</>, <>al <em className="accent">despliegue</em>.</>]}
+          </Lines>
         </h1>
+      </div>
+
+      <div className="hero__foot wrap">
+        <p className="lead hero__lead" data-reveal style={{ '--d': '0.5s' }}>
+          Vibbe Labs es un estudio de desarrollo. Hacemos sitios a medida, aplicaciones web y la
+          parte de datos que va detrás.
+        </p>
+
+        <div className="hero__actions" data-reveal style={{ '--d': '0.6s' }}>
+          <a href="#proyectos" className="btn btn--solid">
+            Ver proyectos <span aria-hidden="true">→</span>
+          </a>
+          <a href="#contacto" className="btn">
+            Escríbenos
+          </a>
+        </div>
+      </div>
+
+      <Marquee
+        className="hero__mq"
+        items={['Diseño', 'Desarrollo', 'Datos', 'Automatización', 'Despliegue']}
+      />
+
+      <div className="hero__mark-wrap" aria-hidden="true" data-track="through">
+        <Wordmark className="hero__mark" />
       </div>
     </section>
   );

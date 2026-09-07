@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import './App.css';
-import useScrollReveal from './useScrollReveal';
-import Interactions from './components/Interactions';
-import NavBar from './components/NavBar';
+import useScroll from './lib/useScroll';
+import Preloader from './components/Preloader';
+import Progress from './components/Progress';
+import Nav from './components/Nav';
 import Hero from './components/Hero';
-import Cases from './components/Cases';
+import Manifesto from './components/Manifesto';
+import Work from './components/Work';
 import Services from './components/Services';
 import Studio from './components/Studio';
-import Stack from './components/Stack';
-import FooterContact from './components/FooterContact';
+import Contact from './components/Contact';
 
 function App() {
-  useScrollReveal();
+  const [ready, setReady] = useState(false);
+  const onDone = useCallback(() => setReady(true), []);
+
+  useScroll();
 
   return (
-    <div className="app-container">
-      <Interactions />
-      <NavBar />
+    <div className={`app ${ready ? 'app--ready' : ''}`}>
+      <Preloader onDone={onDone} />
+      <Progress />
+      <Nav />
       <main>
         <Hero />
-        <Cases />
+        <Manifesto />
+        <Work />
         <Services />
         <Studio />
-        <Stack />
       </main>
-      <FooterContact />
+      <Contact />
     </div>
   );
 }

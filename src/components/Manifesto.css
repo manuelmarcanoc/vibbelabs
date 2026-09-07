@@ -1,0 +1,54 @@
+.man {
+  position: relative;
+  height: 230vh;
+  background: var(--paper);
+}
+
+.man__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.man__label {
+  margin-bottom: 1.75rem;
+}
+
+.man__text {
+  max-width: 22ch;
+  font-size: clamp(1.9rem, 1rem + 4.4vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  margin: 0;
+  max-width: 20ch;
+}
+
+.man__w {
+  opacity: clamp(0.16, calc((var(--p, 0) * 1.35 * var(--n) - var(--i)) * 0.55 + 0.16), 1);
+  transition: opacity 0.18s linear;
+}
+
+@media (max-width: 760px) {
+  .man__text {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .man {
+    height: auto;
+    padding: 6rem 0;
+  }
+
+  .man__sticky {
+    position: static;
+    height: auto;
+  }
+
+  .man__w {
+    opacity: 1;
+  }
+}

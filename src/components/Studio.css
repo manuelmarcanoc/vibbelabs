@@ -1,76 +1,64 @@
-.studio {
-  padding: clamp(4.5rem, 11vw, 8rem) 0;
+.std {
+  padding-bottom: clamp(4rem, 10vw, 8rem);
 }
 
-.studio__layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2.5rem, 7vw, 5rem);
-  align-items: center;
-}
-
-.studio__body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.studio__heading {
-  font-size: var(--display-m);
-}
-
-.studio__text {
-  margin: 0;
-  max-width: 44ch;
-}
-
-.studio__cta {
-  margin-top: 1rem;
-}
-
-.studio__side {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1.5rem, 3vw, 2.25rem);
-}
-
-.studio__mark {
-  width: min(58%, 240px);
-  height: auto;
-  color: var(--accent);
-  opacity: 0.9;
-}
-
-.studio__facts {
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--line);
-}
-
-.studio__fact {
-  display: grid;
-  grid-template-columns: 7rem 1fr;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.studio__fact dd {
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: -0.015em;
+.std__mq {
+  border-top: none;
+  border-bottom-color: var(--line-invert);
+  margin-bottom: clamp(3rem, 8vw, 6rem);
   color: var(--paper);
 }
 
-@media (max-width: 900px) {
-  .studio__layout {
+.std__in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+}
+
+.std__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.std__left em {
+  font-style: normal;
+}
+
+.std__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.std__facts {
+  margin: 0;
+  width: 100%;
+  border-top: 1px solid var(--line-invert);
+}
+
+.std__fact {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line-invert);
+}
+
+.std__fact dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--paper);
+}
+
+@media (max-width: 860px) {
+  .std__in {
     grid-template-columns: 1fr;
   }
 
-  .studio__mark {
-    width: 160px;
+  .std__left {
+    position: static;
   }
 }

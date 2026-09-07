@@ -1,0 +1,66 @@
+.pre {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.pre--out {
+  transform: translateY(-101%);
+}
+
+.pre__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: min(360px, 70vw);
+}
+
+.pre__mark {
+  width: 100%;
+  height: auto;
+  color: var(--ink);
+  animation: pre-mark 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pre-mark {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pre__bar {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.pre__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: 0 50%;
+}
+
+.pre__num {
+  color: var(--ink);
+  letter-spacing: 0.2em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pre {
+    display: none;
+  }
+}

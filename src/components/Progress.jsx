@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import './Interactions.css';
+import './Progress.css';
 
-// Barra de progreso de lectura.
-const Interactions = () => {
-  const barRef = useRef(null);
+// Línea de progreso de lectura, arriba del todo.
+const Progress = () => {
+  const ref = useRef(null);
 
   useEffect(() => {
     let frame = null;
@@ -13,9 +13,7 @@ const Interactions = () => {
       const el = document.documentElement;
       const max = el.scrollHeight - el.clientHeight;
       const ratio = max > 0 ? el.scrollTop / max : 0;
-      if (barRef.current) {
-        barRef.current.style.transform = `scaleX(${ratio.toFixed(4)})`;
-      }
+      if (ref.current) ref.current.style.transform = `scaleX(${ratio.toFixed(4)})`;
     };
 
     const onScroll = () => {
@@ -33,7 +31,7 @@ const Interactions = () => {
     };
   }, []);
 
-  return <div ref={barRef} className="scroll-progress" aria-hidden="true" />;
+  return <div ref={ref} className="prog" aria-hidden="true" />;
 };
 
-export default Interactions;
+export default Progress;
