@@ -48,8 +48,6 @@ const FooterContact = () => {
 
   return (
     <footer className="footer u-dark" id="contacto">
-      <div className="footer__glow" aria-hidden="true" />
-
       <div className="footer__top section-wrap">
         <div className="footer__intro">
           <p className="mono-label" data-reveal="fade">
@@ -57,11 +55,11 @@ const FooterContact = () => {
           </p>
           <h2 className="footer__title display-title" data-reveal="kinetic">
             <Kinetic text="Cuéntanos qué" />
-            <Kinetic text="quieres construir." delay={0.16} accentFrom={1} />
+            <Kinetic text="necesitas." delay={0.16} accentFrom={0} />
           </h2>
           <p className="footer__sub body-text" data-reveal style={{ '--d': '0.08s' }}>
-            Respondemos en 24-48h. Sin formularios eternos ni llamadas de descubrimiento de una
-            hora.
+            Escríbenos con lo que tengas en mente, aunque sea media idea. Contestamos en uno o dos
+            días.
           </p>
 
           <a className="footer__mail link-draw" href={`mailto:${CONTACT_EMAIL}`}>

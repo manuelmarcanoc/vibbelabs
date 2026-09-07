@@ -6,7 +6,6 @@ import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import Cases from './components/Cases';
 import Services from './components/Services';
-import Process from './components/Process';
 import Studio from './components/Studio';
 import Stack from './components/Stack';
 import FooterContact from './components/FooterContact';
@@ -22,7 +21,6 @@ function App() {
         <Hero />
         <Cases />
         <Services />
-        <Process />
         <Studio />
         <Stack />
       </main>

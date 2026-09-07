@@ -28,8 +28,7 @@ const Stack = () => {
             STACK
           </p>
           <p className="stack__intro" data-reveal style={{ '--d': '0.06s' }}>
-            Las herramientas con las que trabajamos a diario. No es una lista para impresionar: es
-            lo que de verdad usamos para llevar cosas a producción.
+            Con lo que trabajamos.
           </p>
         </div>
 

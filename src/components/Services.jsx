@@ -6,22 +6,22 @@ const services = [
   {
     num: '01',
     title: 'Desarrollo web & móvil',
-    text: 'SPAs, apps React y despliegues cloud con foco en rendimiento y mantenibilidad.',
+    text: 'Sitios y aplicaciones en React, con su despliegue y su dominio funcionando.',
   },
   {
     num: '02',
     title: 'Datos & dashboards',
-    text: 'ETL, visualización y métricas operativas para equipos que necesitan claridad.',
+    text: 'Procesos de datos, paneles y métricas para ver cómo va el negocio sin abrir diez pestañas.',
   },
   {
     num: '03',
     title: 'Automatización',
-    text: 'Integraciones, bots y flujos n8n que eliminan trabajo repetitivo.',
+    text: 'Integraciones entre herramientas y flujos en n8n para quitarse tareas repetitivas de encima.',
   },
   {
     num: '04',
     title: 'Arquitectura & consultoría',
-    text: 'Revisiones técnicas, stack y roadmap para escalar sin deuda innecesaria.',
+    text: 'Revisión de un proyecto que ya existe: qué falla, qué cuesta mantenerlo y por dónde seguir.',
   },
 ];
 
@@ -34,7 +34,7 @@ const Services = () => {
             SERVICIOS
           </p>
           <h2 className="services__heading display-title" data-reveal="kinetic">
-            <Kinetic text="Lo que hacemos bien." accentFrom={3} />
+            <Kinetic text="Lo que hacemos." accentFrom={2} />
           </h2>
         </header>
 

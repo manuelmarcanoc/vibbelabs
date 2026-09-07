@@ -4,17 +4,6 @@
   padding: clamp(4.5rem, 11vw, 8rem) 0 clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.footer__glow {
-  position: absolute;
-  bottom: -35%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(90rem, 140%);
-  height: 46rem;
-  background: radial-gradient(circle, rgba(224, 71, 44, 0.22), transparent 60%);
-  pointer-events: none;
-}
-
 .footer__top {
   position: relative;
   display: grid;

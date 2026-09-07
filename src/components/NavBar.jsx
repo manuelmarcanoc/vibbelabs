@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Wordmark from './Wordmark';
 import './NavBar.css';
 
 const links = [
   { href: '#proyectos', label: 'Proyectos', id: 'proyectos' },
   { href: '#servicios', label: 'Servicios', id: 'servicios' },
-  { href: '#proceso', label: 'Proceso', id: 'proceso' },
   { href: '#estudio', label: 'Estudio', id: 'estudio' },
 ];
 
@@ -57,7 +57,7 @@ const NavBar = () => {
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''} ${open ? 'nav--open' : ''}`}>
       <div className="nav__inner">
         <a href="#inicio" className="nav__brand" aria-label="Vibbe Labs — inicio">
-          <img src={`${process.env.PUBLIC_URL}/logo-mark.png`} alt="Vibbe Labs" />
+          <Wordmark className="nav__mark" />
         </a>
 
         <nav className="nav__links" aria-label="Principal">

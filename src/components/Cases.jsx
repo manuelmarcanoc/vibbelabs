@@ -10,7 +10,7 @@ const projects = [
     kicker: 'Web corporativa',
     year: '2026',
     description:
-      'Web corporativa para una empresa de fundas térmicas y merchandising de festivales. Identidad de alto contraste, catálogo y captación de peticiones de muestra.',
+      'Web corporativa para una empresa de fundas térmicas de neopreno y merchandising para festivales. Catálogo del producto y formulario de petición de muestras.',
     tags: ['WEB', 'MERCH', 'EVENTOS'],
     url: 'https://kooz.es',
     domain: 'kooz.es',
@@ -24,7 +24,7 @@ const projects = [
     kicker: 'Producto propio',
     year: '2026',
     description:
-      'Plataforma de preparación para la certificación ISTQB CTFL v4.0: simulador con preguntas oficiales, apuntes, minijuego y estadísticas de progreso. Disponible en ES, EN y FR.',
+      'Plataforma para preparar la certificación ISTQB CTFL v4.0: simulador de examen, apuntes, minijuego y estadísticas de progreso. En español, inglés y francés.',
     tags: ['REACT', 'I18N', 'DATA'],
     url: 'https://istqbeasy.com',
     domain: 'istqbeasy.com',
@@ -82,8 +82,8 @@ const Cases = () => {
             PROYECTOS ({String(projects.length).padStart(2, '0')})
           </p>
           <h2 className="cases__heading display-title" data-reveal="kinetic">
-            <Kinetic text="Cosas que ya están" />
-            <Kinetic text="en producción." delay={0.18} accentFrom={2} />
+            <Kinetic text="Lo que hay online" />
+            <Kinetic text="ahora mismo." delay={0.18} accentFrom={1} />
           </h2>
         </header>
 
